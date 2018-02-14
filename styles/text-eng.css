@@ -1,0 +1,8 @@
+a#navbtn-home:after {content: "Home"; }
+a#navbtn-about:after {content: "About Us";}
+a#navbtn-contact:after {content:"Contact Us";}
+a#navbtn-register:after {content:"Register"}
+a#navbtn-login:after {content: "Login"}
+a#navbtn-terms:after {content: "Terms & Conditions"}
+a#navbtn-privacy:after {content:"Privacy Policy"}
+
