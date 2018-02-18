@@ -6,3 +6,9 @@ a#navbtn-login:after {content: "Login"}
 a#navbtn-terms:after {content: "Terms & Conditions"}
 a#navbtn-privacy:after {content:"Privacy Policy"}
 
+
+a#navbtn-MemberProfile:after {content: "Profile"; }
+a#navbtn-Search:after {content: "Search"; }
+a#navbtn-addDeceased:after {content: "Add Deceased"; }
+a#navbtn-logout:after {content: "Log Out"; }
+
