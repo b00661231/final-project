@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <script src="scripts/tabs.js"></script>
+
   
   
   <link href="styles/memorials.css" rel="stylesheet">
@@ -27,13 +27,13 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li><a href="#"  class="active" id="navbtn-home"></a></li>
-      <li><a href="#" id="navbtn-about"></a></li>
-      <li><a href="#" id="navbtn-contact"></a></li>
+      <li class="active"><a href="http:www.dailymemorials.com/" id="navbtn-home"></a></li>
+      <li><a href="http:www.dailymemorials.com/about/" id="navbtn-about"></a></li>
+      <li><a href="http:www.dailymemorials.com/contact/" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
-      <li><a href="#" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
+      <li><a href="http:www.dailymemorials.com/register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
+      <li><a href="http:www.dailymemorials.com/login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
     </ul>
   </div>
 </nav>
@@ -121,67 +121,6 @@
 
 
 
-<div id="AboutUs-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>About Us</h3>
-
-</div></div></div>
-</div> <!-- End AboutUs Contents -->
-
-
-
-
-<div id="ContactUs-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>Contact Us</h3>
-</div></div></div>
-</div> <!-- End ContactUs Contents -->
-
-
-<div id="Register-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>Register</h3>
-</div></div></div>
-</div> <!-- End Register Contents -->
-
-
-
-<div id="Login-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>Login</h3>
-</div></div></div>
-</div> <!-- End Login Contents -->
-
-
-
-
-<div id="Terms-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>Terms & Conditions Policy</h3>
-</div></div></div>
-</div> <!-- End Terms Contents -->
-
-
-
-
-<div id="PrivacyPolicy-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>Privacy Policy</h3>
-</div></div></div>
-</div> <!-- End PrivacyPolicy Contents -->
-
 
 
 
@@ -209,8 +148,8 @@
     </div>
     
        <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"id="navbtn-terms"></a></li>
-      <li><a href="#" id="navbtn-privacy"></a></li>
+      <li><a href="http:www.dailymemorials.com/terms/"id="navbtn-terms"></a></li>
+      <li><a href="http:www.dailymemorials.com/privacy/" id="navbtn-privacy"></a></li>
     </ul>
   </div>
 </nav>
