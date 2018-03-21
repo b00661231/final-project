@@ -44,17 +44,25 @@
 <div id="Login-Contents">
 
 
-<FORM METHOD="POST" ACTION="">
-<table border="0" width="100%" id="table1">
+
+<div class="container" align="center">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<img border="0" src="../images/daily_memorials_logo.jpg">
+<h3>Login Page</h3>
+
+
+<FORM METHOD="POST" ACTION="login_auth.php">
+<table border="0" width="50%">
 	<tr>
-		<td width="452">Login</td>
+		<td>Login</td>
 		<td>
-<INPUT TYPE=TEXT NAME="Member-Email" SIZE=50 MAXLENGTH=50></td>
+<INPUT TYPE=TEXT NAME="MemberEmail" SIZE=50 MAXLENGTH=50></td>
 	</tr>
 	<tr>
-		<td width="452">Password</td>
+		<td>Password</td>
 		<td>
-<INPUT TYPE=PASSWORD NAME="Member-Password" SIZE=50 MAXLENGTH=50></td>
+<INPUT TYPE=PASSWORD NAME="MemberPassword" SIZE=50 MAXLENGTH=50></td>
 	</tr>
 </table>
 <BLOCKQUOTE>
@@ -63,13 +71,6 @@
 </BLOCKQUOTE>
 <INPUT TYPE=SUBMIT VALUE="Submit Form">
 </FORM>
-
-
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<img border="0" src="../images/daily_memorials_logo.jpg">
-<h3>Login Page</h3>
 
 
 </div></div></div>

@@ -54,6 +54,54 @@
 <h3>How to Contact Us</h3>
 
 
+<form action="" method="post">
+	<table width="400px">
+	<tr>
+	<td>
+	First Name: 
+	</td><td>
+	<input type="text" name="first_name" maxlength="50" size="30">  
+	</td></tr><tr><td>
+	Last Name:  
+	</td><td>
+	<input type="text" name="last_name" maxlength="50" size="30"><br/><br/> 
+	</td></tr><tr><td>
+	Email Add : 
+	</td><td>
+	<input type="text" name="email" maxlength="50" size="30"><br/></br>
+	</td></tr><tr><td valign="top">
+	Comments:   
+	</td><td>
+	<textarea name="Comments" maxlength="1000" cols="30" rows="6"></textarea> 
+	</td></tr><tr>
+	<td colspan="2" align="center">
+	<br> <input type="submit" class="button" name="submit" value="Submit">
+	</td></tr>
+	</table>
+	</form>
+	</div>
+	<?php 
+if(isset($_POST['submit'])){
+	$to = "info@dailymemorials.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $first_name . " " . $last_name . " wrote the following:" . "\n\n" . $_POST['Comments'];
+    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['Comments'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+	echo "<div align='center'></br></br><strong>Mail Sent. Thank you for contacting Daily Memorials " . $first_name . ". </br>We will get back to you shortly.</strong></div>";
+	}
+	?>	
+
+
+
+
 </div></div></div>
 
 

@@ -1,3 +1,25 @@
+<?php
+session_start(); 
+
+// check if member
+
+
+if ($_SESSION['auth'] == "basic" || $_SESSION['auth'] == "paid" || $_SESSION['auth'] == "comm")
+{}
+else
+{
+header('Location: ../login/');
+exit();
+};
+
+
+$uname = $_SESSION['username'];
+$type = $_SESSION['auth'];
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +54,7 @@
       <li><a href="../members/deceased/" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;</a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:<?php echo $uname; ?></a></li>
             <li><a href="logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
@@ -54,7 +76,7 @@
 <table width="80%">
 <tr>
 <td>Display Name: xxxxxxxxx</td>
-<td>Membership Type: basic</td>
+<td>Membership Type: <?php echo $type; ?></td>
 <td><button type="button" class="btn">Upgrade</button></td>
 </tr>
 </table>
