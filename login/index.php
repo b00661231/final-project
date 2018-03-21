@@ -27,13 +27,13 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li class="active"><a href="http:www.dailymemorials.com/" id="navbtn-home"></a></li>
-      <li><a href="http:www.dailymemorials.com/about/" id="navbtn-about"></a></li>
-      <li><a href="http:www.dailymemorials.com/contact/" id="navbtn-contact"></a></li>
+      <li><a href="../" id="navbtn-home"></a></li>
+      <li><a href="../about/" id="navbtn-about"></a></li>
+      <li><a href="../contact/" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
-      <li><a href="http:www.dailymemorials.com/login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
+      <li><a href="../register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
+      <li class="active"><a href="#" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
     </ul>
   </div>
 </nav>
@@ -44,7 +44,25 @@
 <div id="Login-Contents">
 
 
-
+<FORM METHOD="POST" ACTION="">
+<table border="0" width="100%" id="table1">
+	<tr>
+		<td width="452">Login</td>
+		<td>
+<INPUT TYPE=TEXT NAME="Member-Email" SIZE=50 MAXLENGTH=50></td>
+	</tr>
+	<tr>
+		<td width="452">Password</td>
+		<td>
+<INPUT TYPE=PASSWORD NAME="Member-Password" SIZE=50 MAXLENGTH=50></td>
+	</tr>
+</table>
+<BLOCKQUOTE>
+<P>
+&nbsp;</P>
+</BLOCKQUOTE>
+<INPUT TYPE=SUBMIT VALUE="Submit Form">
+</FORM>
 
 
 <div class="container" align="center">
@@ -60,7 +78,7 @@
 
 
 
-</div></div> <!-- End HemePage Contents -->
+</div></div> <!-- End Contents -->
 
 
 
@@ -91,8 +109,8 @@
     </div>
     
        <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/terms/"id="navbtn-terms"></a></li>
-      <li><a href="http:www.dailymemorials.com/privacy/" id="navbtn-privacy"></a></li>
+      <li><a href="../terms/"id="navbtn-terms"></a></li>
+      <li><a href="../privacy/" id="navbtn-privacy"></a></li>
     </ul>
   </div>
 </nav>

@@ -27,13 +27,13 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li class="active"><a href="http:www.dailymemorials.com/" id="navbtn-home"></a></li>
-      <li><a href="http:www.dailymemorials.com/about/" id="navbtn-about"></a></li>
-      <li><a href="http:www.dailymemorials.com/contact/" id="navbtn-contact"></a></li>
+      <li><a href="../" id="navbtn-home"></a></li>
+      <li><a href="../about/" id="navbtn-about"></a></li>
+      <li><a href="../contact/" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
-      <li><a href="http:www.dailymemorials.com/login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
+      <li class="active"><a href="#" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
+      <li><a href="../login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
     </ul>
   </div>
 </nav>
@@ -51,7 +51,71 @@
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <img border="0" src="../images/daily_memorials_logo.jpg">
-<h3>Registration</h3>
+
+<div align="center">
+
+</br>
+
+<h1>Register New User</h1>
+	
+	</br></br>
+	
+	<table border="0" width="80%"><tr><td align="center" valign="middle">
+	
+	
+	
+<form action="reg_auth.php" method="POST">
+
+<table border="0" width="80%">
+<tr>
+	<td align="right">Username:</td>
+	<td><input type="text" size="16" maxLength="20" name="login_name"></td>
+	<td>Please enter a valid email address.</td>
+</tr>
+
+<tr><td colspan=3></br></br></td></tr>
+
+<tr>
+	<td align="right">Password: </td>
+	<td><input type="password" size="16" maxLength="20" name="login_passwd"></td>
+	<td rowspan=2>Your password should have at least 8 characters</br>
+	and include at least: a Capital Letter,</br>
+	a number and a symbol or a punctuation mark.</br></td>
+</tr>
+<tr>
+	<td align="right">Retype Password: </td>
+	<td><input type="password" size="16" maxLength="20" name="retype_passwd"></td>
+</tr>
+<tr>
+
+<tr><td colspan=3></br></br></td></tr>
+
+<tr>
+<td>Display Name:</td>
+<td><input type='text' size='16' maxLength='30' name='dname'></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><td colspan=3></br></br></td></tr>
+
+	<td>&nbsp;</td>
+	<td align="center"><input type="submit" value="Register"></td>
+</tr>
+</table>
+
+</form>
+
+
+		
+	</td>
+	</tr></table>
+	
+	</br></br>
+	
+	
+	</div>
+
+
 
 
 </div></div></div>
@@ -60,7 +124,7 @@
 
 
 
-</div></div> <!-- End HemePage Contents -->
+</div></div> <!-- End Contents -->
 
 
 
@@ -91,8 +155,8 @@
     </div>
     
        <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/terms/"id="navbtn-terms"></a></li>
-      <li><a href="http:www.dailymemorials.com/privacy/" id="navbtn-privacy"></a></li>
+      <li><a href="../terms/"id="navbtn-terms"></a></li>
+      <li><a href="../privacy/" id="navbtn-privacy"></a></li>
     </ul>
   </div>
 </nav>

@@ -27,12 +27,13 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li><a href="#" class="active" id="navbtn-MemberProfile""></a></li>
-      <li><a href="#" id="navbtn-Search"></a></li>
-      <li><a href="#" id="navbtn-addDeceased"></a></li>
+      <li class="active"><a href="#"id="navbtn-MemberProfile""></a></li>
+      <li><a href="../members/search/" id="navbtn-Search"></a></li>
+      <li><a href="../members/deceased/" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;</a></li>
+            <li><a href="logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
 </nav>
@@ -50,35 +51,40 @@
 
 <h3>Member Profile</h3>
 
+<table width="80%">
+<tr>
+<td>Display Name: xxxxxxxxx</td>
+<td>Membership Type: basic</td>
+<td><button type="button" class="btn">Upgrade</button></td>
+</tr>
+</table>
+
+
+</br></br></br>
+
+
+<h4>My Memorials</h4>
+
+<table border="0" width="70%">
+<tr>
+<td align="center">Surname</td>
+<td align="center">First Names</td>
+<td align="center">Death Date</td>
+<td align="center"><a href="../members/deceased-profile/"><button type="button" class="btn">View Profile</button></a></td>
+<td align="center"><a href="../members/notice/"><button type="button" class="btn">Add Funeral Notice</button></a></td>
+<td align="center"><a href="../members/memorial/"><button type="button" class="btn">Add Memorial</button></a></td>
+<td align="center"><a href="../members/fact/"><button type="button" class="btn">Add Facts</button></a></td>
+</tr>
+</table>
+
+
+
+
+
 </div></div></div>
 
 
 </div> <!-- End Member Profile Contents -->
-
-
-
-<div id="MemberSearch-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>Member Search</h3>
-
-</div></div></div>
-</div> <!-- End Member Search Contents -->
-
-
-
-
-<div id="AddDeceased-Contents">
-<div class="container" align="center">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<h3>Add Deceased</h3>
-</div></div></div>
-</div> <!-- End Add Deceased Contents -->
-
-
-
 
 
 

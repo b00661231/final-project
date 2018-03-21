@@ -27,13 +27,13 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li class="active"><a href="http:www.dailymemorials.com/" id="navbtn-home"></a></li>
-      <li><a href="http:www.dailymemorials.com/about/" id="navbtn-about"></a></li>
-      <li><a href="http:www.dailymemorials.com/contact/" id="navbtn-contact"></a></li>
+      <li><a href="../" id="navbtn-home"></a></li>
+      <li><a href="../about/" id="navbtn-about"></a></li>
+      <li><a href="../contact/" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
-      <li><a href="http:www.dailymemorials.com/login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
+      <li><a href="../register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
+      <li><a href="../login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
     </ul>
   </div>
 </nav>
@@ -47,24 +47,21 @@
 
 
 
-<div class="container" align="center">
+<div class="container">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div align="center">
 <img border="0" src="../images/daily_memorials_logo.jpg">
-<h3>Privacy Policy</h3>
+</div>
+
+<h3 id="head-privacy"></h3>
+<p id="para1-privacy"></p>
+<p id="para2-privacy"></p> 
 
 
 </div></div></div>
 
-
-
-
-
-</div></div> <!-- End HemePage Contents -->
-
-
-
-
+</div><!-- End Contents -->
 
 
 
@@ -91,8 +88,8 @@
     </div>
     
        <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/terms/"id="navbtn-terms"></a></li>
-      <li><a href="http:www.dailymemorials.com/privacy/" id="navbtn-privacy"></a></li>
+      <li><a href="../terms/"id="navbtn-terms"></a></li>
+      <li class="active"><a href="#" id="navbtn-privacy"></a></li>
     </ul>
   </div>
 </nav>

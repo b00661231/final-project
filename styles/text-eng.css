@@ -1,14 +1,72 @@
+
+/* Free Pages Menu Labels */
+
 a#navbtn-home:after {content: "Home"; }
 a#navbtn-about:after {content: "About Us";}
 a#navbtn-contact:after {content:"Contact Us";}
-a#navbtn-register:after {content:"Register"}
-a#navbtn-login:after {content: "Login"}
-a#navbtn-terms:after {content: "Terms & Conditions"}
-a#navbtn-privacy:after {content:"Privacy Policy"}
+a#navbtn-register:after {content:"Register";}
+a#navbtn-login:after {content: "Login";}
+a#navbtn-terms:after {content: "Terms & Conditions";}
+a#navbtn-privacy:after {content:"Privacy Policy";}
 
+
+/* Member Pages Menu Labels */
 
 a#navbtn-MemberProfile:after {content: "Profile"; }
 a#navbtn-Search:after {content: "Search"; }
 a#navbtn-addDeceased:after {content: "Add Deceased"; }
 a#navbtn-logout:after {content: "Log Out"; }
+
+
+
+
+
+
+
+
+/* Terms and Conditions */
+
+h3#head-terms:after {content:"Terms and Conditions";}
+p#para1-terms:after {content:"We ask that you take the time to read the terms of conditions for using the service which are set out below and are designed to be easy to understand, fair and reasonable. We would appreciate your understanding that because of the nature of setting up and using an online Memorial Site that may be intended for perpetual public access, we must have clear conditions regarding authority, content and privacy for contributors and donors.";}
+
+
+h3#head-summary:after {content:"Summary Statement of intended use";}
+p#para1-summary:after {content:"The service enables family, friends and colleagues to come together to create a memorial to a loved one.";}
+
+
+h3#head-contributors:after {content:"Memorial Contributors";}
+p#para1-contributors:after{content:"Anyone who wishes to contribute to a memorial by uploading messages, stories, facts or pictures will be registered on the service the first time that they choose to do this.";}
+
+
+h3#head-copyright:after{content:"Copyright and Material";}
+p#para1-copyright:after{content:"Contributors retain the copyright over all their uploaded content but grant DailyMemorials.com a worldwide, royalty-free and non-exclusive license in perpetuity to use and reproduce the content. Please make sure that any content you upload does not infringe any other person’s copyright. All Intellectual Property relating to the website is owned by DailyMemorials.com.";}
+p#para2-copyright:after{content:"Any material that may be viewed as offensive or otherwise inappropriate may be removed by DailyMemorials.com at their sole discretion. This action may include the full removal of a memorial without notice.";}
+p#para3-copyright:after{content:"Any re-publication of any part of the website including any content is not allowed without express written permission by DailyMemorials.com. Any breach of this by either individuals, companies or any other organisation will be deemed to be a breach of both the spirit of the service and legal copyright and we reserve the right to take action to protect the interests of both DailyMemorials.com and our contributors.";}
+
+
+h3#head-liability:after{content:"Liability";}
+p#para1-liability:after{content:"Whilst we try to take reasonable precautions to protect and store your information, DailyMemorials.com can not be held responsible for any loss or damage, including temporary or permanent loss of access. As part of the contract you agree that DailyMemorials.com (its employees, trustees, partners or anyone connected with the organisation) is not, nor ever will be, liable to you or any third party for any modification, suspension or discontinuance of the service for any reason.";}
+p#para2-liability:after{content:"You warrant that you own all intellectual property rights of content you upload and agree that DailyMemorials.com is not responsible in any way for uploaded content, notwithstanding its authority to remove any inappropriate content at its own discretion, and you also agree to indemnify DailyMemorials.com for any direct or indirect damages claims now or in the future.";}
+
+
+h3#header-cookies:after{content:"Cookies";}
+p#para1-cookies:after{content:"We use cookies in order to improve the website service, such as helping our website to recognise you when you visit. Cookies are an identifying file stored by your browser on your device, however most browsers provide you with options to reject third party cookies if you wish; choosing this option will have an impact upon the usability of many website services including ours.";}
+
+
+h3#head-updates:after{content:"Updates to Terms and Conditions";}
+p#para1-updates:after{content:"DailyMemorials.com reserve the right to update these terms and conditions and all users will remain bound by the amended terms which are governed by UK laws. Your use of the service indicates acceptance of these terms and you can deactivate your account at any time if you do not wish to continue to abide with the terms and conditions of service.";}
+p#para2-updates{content:"We will update this policy from time to time by posting a new version on our website and by providing visible links at appropriate points throughout the service. You should check this page occasionally to ensure that you are familiar and happy with any changes. If you have any queries whatsoever, please contact us at support@DailyMemorials.com";}
+p#para3-updates:after{content:"The current version is dated 1st March 2018";}
+
+
+
+/* Privacy Policy */
+
+h3#head-privacy:after{content:"Privacy Policy";}
+p#para1-privacy:after{content:"We take your privacy seriously and outline below how we will treat your personal information. We have put in place suitable technical and organisational precautions to ensure that your information is secure including the use of secure servers and data encryption.";}
+p#para2-privacy:after{content:"No personal information other than your e-mail address and name are stored, and these will NOT be shared with any third party.";}
+
+
+
+
 

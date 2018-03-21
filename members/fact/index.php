@@ -8,11 +8,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-
+  <script src="../../scripts/tabs-mem.js"></script>
   
   
-  <link href="../styles/memorials.css" rel="stylesheet">
-  <link href="../styles/text-eng.css" rel="stylesheet">
+  <link href="../../styles/memorials.css" rel="stylesheet">
+  <link href="../../styles/text-eng.css" rel="stylesheet">
 </head>
 <body>
 
@@ -27,13 +27,13 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li><a href="../" id="navbtn-home"></a></li>
-      <li class="active"><a href="#" id="navbtn-about"></a></li>
-      <li><a href="../contact/" id="navbtn-contact"></a></li>
+      <li><a href="../"id="navbtn-MemberProfile""></a></li>
+      <li><a href="../search/" id="navbtn-Search"></a></li>
+      <li"><a href="../deceased" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="../register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
-      <li><a href="../login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;</a></li>
+            <li><a href="../logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
 </nav>
@@ -41,28 +41,60 @@
 </div></div></div>
 
 
-<div id="AboutUs-Contents">
-
-
+<div id="Add Fact Contents">
 
 
 
 <div class="container" align="center">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<img border="0" src="../images/daily_memorials_logo.jpg">
-<h3>About this Site</h3>
+
+<h3>Add Fact Details</h3>
+
+<FORM METHOD="POST" ACTION="">
+<P>
+FactId</P>
+<BLOCKQUOTE>
+<P>
+<INPUT TYPE=TEXT NAME="FactId" SIZE=10 MAXLENGTH=10>
+</P>
+<P>
+DeceasedId</P>
+<BLOCKQUOTE>
+<P>
+<INPUT TYPE=TEXT NAME="DeceasedId" SIZE=10 MAXLENGTH=10>
+<BR>
+</P>
+</BLOCKQUOTE>
+<P>
+MemberId</P>
+<BLOCKQUOTE>
+<P>
+<INPUT TYPE=TEXT NAME="MemberId" SIZE=10 MAXLENGTH=10></P>
+</BLOCKQUOTE>
+<P>
+&nbsp;</P>
+<table border="0" width="36%" id="table1">
+	<tr>
+		<td>Category</td>
+		<td>
+<INPUT TYPE=TEXT NAME="Category" SIZE=10 MAXLENGTH=10></td>
+	</tr>
+	<tr>
+		<td>Fact Info</td>
+		<td>
+<INPUT TYPE=TEXT NAME="FactInfo" SIZE=12 MAXLENGTH=12></td>
+	</tr>
+</table>
+</BLOCKQUOTE>
+<INPUT TYPE=SUBMIT VALUE="Submit Form">
+</FORM>
 
 
 </div></div></div>
 
 
-
-
-
-</div></div> <!-- End Contents -->
-
-
+</div> <!-- End Add Fact Contents -->
 
 
 
@@ -89,11 +121,7 @@
   <div class="navbar-header">
       <a class="navbar-brand">Daily Memorials (c) 2018</a>
     </div>
-    
-       <ul class="nav navbar-nav navbar-right">
-      <li><a href="../terms/"id="navbtn-terms"></a></li>
-      <li><a href="../privacy/" id="navbtn-privacy"></a></li>
-    </ul>
+           
   </div>
 </nav>
 

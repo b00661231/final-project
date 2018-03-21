@@ -27,13 +27,13 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li class="active"><a href="http:www.dailymemorials.com/" id="navbtn-home"></a></li>
-      <li><a href="http:www.dailymemorials.com/about/" id="navbtn-about"></a></li>
-      <li><a href="http:www.dailymemorials.com/contact/" id="navbtn-contact"></a></li>
+      <li><a href="../" id="navbtn-home"></a></li>
+      <li><a href="../about/" id="navbtn-about"></a></li>
+      <li class="active"><a href="#" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
-      <li><a href="http:www.dailymemorials.com/login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
+      <li><a href="../register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
+      <li><a href="../login/" id="navbtn-login"><span class="glyphicon glyphicon-log-in">&nbsp; </span></a></li>
     </ul>
   </div>
 </nav>
@@ -60,7 +60,7 @@
 
 
 
-</div></div> <!-- End HemePage Contents -->
+</div></div> <!-- End Contents -->
 
 
 
@@ -91,8 +91,8 @@
     </div>
     
        <ul class="nav navbar-nav navbar-right">
-      <li><a href="http:www.dailymemorials.com/terms/"id="navbtn-terms"></a></li>
-      <li><a href="http:www.dailymemorials.com/privacy/" id="navbtn-privacy"></a></li>
+      <li><a href="../terms/"id="navbtn-terms"></a></li>
+      <li><a href="../privacy/" id="navbtn-privacy"></a></li>
     </ul>
   </div>
 </nav>
