@@ -5,7 +5,6 @@ require '../../config.inc';
 
 $memid = $_SESSION['memberid'];
 $deceasedid = $_POST['deceasedid'];
-$cdate= strftime("%F");
 
 $conn = mysqli_connect($host, $user, $pwd) or die("No connection");
 mysqli_select_db($conn, $dbname) or die("Database will not open");   // opens database 
@@ -15,13 +14,6 @@ $result = mysqli_query($conn, $query) or die("Invalid deceased details query"); 
 $row = mysqli_fetch_row($result);
 
 $num = mysqli_num_rows($result); 
-
-
-$query2 = "SELECT `display-name` FROM `member` WHERE `member-id`='$memid'";  // sets up deceaded details sql query
-$result2 = mysqli_query($conn, $query2) or die("Invalid display name query"); // runs query using open connection
-$row2 = mysqli_fetch_row($result2);
-
-$num2 = mysqli_num_rows($result2); 
 
 
 mysqli_close($conn);
@@ -71,7 +63,7 @@ mysqli_close($conn);
 </div></div></div>
 
 
-<div id="Add Memorial Message Contents">
+<div id="Add Photo Contents">
 
 
 
@@ -79,33 +71,33 @@ mysqli_close($conn);
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<h3>Add Memorial Message</h3>
+<h3>Add Photo</h3>
 <h3><?php echo $row[1]." ".$row[0]." (".$row[2].")"; ?></h3>
 
 </br></br>
 
 
-<FORM METHOD="POST" ACTION="add-memorial.php">
+<FORM METHOD="POST" ACTION="add-photo.php" enctype="multipart/form-data">
 
 <INPUT TYPE=hidden NAME="DeceasedId" VALUE="<?php echo $deceasedid; ?>">
-<INPUT TYPE=hidden NAME="create-date" VALUE="<?php echo $cdate; ?>">
-<INPUT TYPE=hidden NAME="display-name" VALUE="<?php echo $row2[0]; ?>">
 
-<table border="0">
-	<tr><td align="center">Message</td></tr>
-	<tr><td><TEXTAREA NAME="message" ROWS=5 COLS=35></TEXTAREA></td></tr>
-	<tr><d>&nbsp;</td></tr>
-	<tr><td align="center">Added by:&nbsp;<strong><?php echo $row2[0] ?></strong>&nbsp;on&nbsp;<strong><?php echo $cdate ?></strong></td></tr>
-	<tr><td>&nbsp;</td></tr>
-	<tr><td colspan="2">
-		
-	<INPUT TYPE=SUBMIT VALUE="Add Notice" class="btn  btn-block">
-		
-	</td></tr>
-	
+<table width="300" border="0">
+<tr>
+<td align="center"><strong>Upload Photo </strong></td>
+</tr>
+<tr><td></br></td></tr>
+<tr>
+<td><input name="ufile" type="file" id="ufile" size="50" /></td>
+</tr>
+<tr><td></br></td></tr>
+<tr>
+<td align="center"><INPUT TYPE=SUBMIT VALUE="Upload" class="btn  btn-block"></td>
+</tr>
 </table>
+</td>
+</form>
 
-</FORM>
+
 
 </br></br>
 
@@ -119,7 +111,7 @@ mysqli_close($conn);
 </div></div></div>
 
 
-</div> <!-- End Add Memorial Message Contents -->
+</div> <!-- End Upload Photo Contents -->
 
 
 

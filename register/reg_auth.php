@@ -60,7 +60,7 @@ $result2 = mysqli_query($conn, $query2) or die("Invalid Login Query"); // runs q
 
 $query3 = "INSERT INTO `member` (`display-name`, `member-email`, `member-type`, `creation-date`) VALUES ('$dname', '$uname', '$type', '$cdate');";  // sets up sql query
 $result = mysqli_query($conn, $query3) or die("Invalid Member query"); // runs query using open connection
-
+$last_id = mysqli_insert_id($conn);
 
 
 mysqli_close($conn); // close database connection
@@ -69,10 +69,12 @@ mysqli_close($conn); // close database connection
 
 $_SESSION['username'] = $uname;
 $_SESSION['auth']="basic";
+$_SESSION['displayname']=$dname;
+$_SESSION['memberid']= $last_id;
 
 // redirect to register details page
 
-header('Location: ..\members\');
+header('Location: ../members/');
 }
 
 mysqli_close($conn); // close database connection

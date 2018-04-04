@@ -68,7 +68,7 @@
 
 <table border="0" width="80%">
 <tr>
-	<td align="right">Username:</td>
+	<td align="right">Username:&nbsp;</td>
 	<td><input type="text" size="16" maxLength="20" name="login_name"></td>
 	<td>Please enter a valid email address.</td>
 </tr>
@@ -76,14 +76,14 @@
 <tr><td colspan=3></br></br></td></tr>
 
 <tr>
-	<td align="right">Password: </td>
+	<td align="right">Password:&nbsp; </td>
 	<td><input type="password" size="16" maxLength="20" name="login_passwd"></td>
 	<td rowspan=2>Your password should have at least 8 characters</br>
 	and include at least: a Capital Letter,</br>
 	a number and a symbol or a punctuation mark.</br></td>
 </tr>
 <tr>
-	<td align="right">Retype Password: </td>
+	<td align="right">Re-type Password:&nbsp; </td>
 	<td><input type="password" size="16" maxLength="20" name="retype_passwd"></td>
 </tr>
 <tr>
@@ -91,15 +91,14 @@
 <tr><td colspan=3></br></br></td></tr>
 
 <tr>
-<td>Display Name:</td>
+<td align="right">Display Name:&nbsp;</td>
 <td><input type='text' size='16' maxLength='30' name='dname'></td>
-<td>&nbsp;</td>
+<td>Name to be Displayed on Memorials.</td>
 </tr>
 
 <tr><td colspan=3></br></br></td></tr>
 
-	<td>&nbsp;</td>
-	<td align="center"><input type="submit" value="Register"></td>
+	<td align="center" colspan=4><input type="submit" value="Register" class="btn  btn-block"></td>
 </tr>
 </table>
 

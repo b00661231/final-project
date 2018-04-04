@@ -1,20 +1,20 @@
 <?php
-session_start(); 
 
-// check if member
+require 'session-valid.php';
+require '../config.inc';
 
+$memid = $_SESSION['memberid'];
+unset($_SESSION['deceasedid']);
 
-if ($_SESSION['auth'] == "basic" || $_SESSION['auth'] == "paid" || $_SESSION['auth'] == "comm")
-{}
-else
-{
-header('Location: ../login/');
-exit();
-};
+$conn = mysqli_connect($host, $user, $pwd) or die("No connection");
+mysqli_select_db($conn, $dbname) or die("Database will not open");   // opens database 
 
+$query = "SELECT `surname`, `firstnames`, `death-date`, `deceased-id` FROM `deceased` WHERE `member-id`='$memid'";  // sets up sql query
+$result = mysqli_query($conn, $query) or die("Invalid query"); // runs query using open connection
 
-$uname = $_SESSION['username'];
-$type = $_SESSION['auth'];
+$num = mysqli_num_rows($result);
+
+mysqli_close($conn); 
 
 ?>
 
@@ -54,7 +54,7 @@ $type = $_SESSION['auth'];
       <li><a href="../members/deceased/" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-			<li class="active"><a class="navbar-brand">Logged in as:<?php echo $uname; ?></a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;<?php echo  $_SESSION['username']; ?></a></li>
             <li><a href="logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
@@ -73,10 +73,10 @@ $type = $_SESSION['auth'];
 
 <h3>Member Profile</h3>
 
-<table width="80%">
+<table width="70%">
 <tr>
-<td>Display Name: xxxxxxxxx</td>
-<td>Membership Type: <?php echo $type; ?></td>
+<td>Display Name:<strong> <?php echo  $_SESSION['displayname']; ?></strong></td>
+<td>Membership Type:<strong> <?php echo  $_SESSION['auth']; ?></strong></td>
 <td><button type="button" class="btn">Upgrade</button></td>
 </tr>
 </table>
@@ -85,20 +85,39 @@ $type = $_SESSION['auth'];
 </br></br></br>
 
 
-<h4>My Memorials</h4>
+<h4>Submitted Memorials</h4>
 
-<table border="0" width="70%">
-<tr>
-<td align="center">Surname</td>
-<td align="center">First Names</td>
-<td align="center">Death Date</td>
-<td align="center"><a href="../members/deceased-profile/"><button type="button" class="btn">View Profile</button></a></td>
-<td align="center"><a href="../members/notice/"><button type="button" class="btn">Add Funeral Notice</button></a></td>
-<td align="center"><a href="../members/memorial/"><button type="button" class="btn">Add Memorial</button></a></td>
-<td align="center"><a href="../members/fact/"><button type="button" class="btn">Add Facts</button></a></td>
-</tr>
-</table>
+<?php
 
+if ($num==0){
+	echo "<p>No Memorials Submitted</p>";
+	}else{
+	echo"<table border='0' width='70%'>";
+	echo"<tr><td align='center'><strong>Surname</strong></td>
+	<td align='center'><strong>First Names</strong></td>
+	<td align='center'><strong>Death Date</strong></td>
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
+	
+	while($row = mysqli_fetch_row($result))      //  while there are rows available
+	{
+		echo"<tr><td align='center'>".$row[0]."</td>
+		<td align='center'>".$row[1]."</td>
+		<td align='center'>".$row[2]."</td>
+		<td align='center'>
+		<form  action='../members/deceased-profile/' method='POST'>
+		<input type='hidden' name='deceasedid' value='$row[3]'>
+		<input  type='submit' class='btn' value='View Profile'>
+		</form>
+		</td></tr>";
+		
+		echo"<tr><td colspan='4'>&nbsp;</td></tr>";
+	};
+	echo"</table>";
+};
+
+mysqli_close($conn); // close database connection
+
+?>
 
 
 

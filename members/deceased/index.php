@@ -1,3 +1,9 @@
+<?php
+
+require '../session-valid.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +38,7 @@
       <li class="active"><a href="#" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;</a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;<?php echo  $_SESSION['username']; ?></a></li>
             <li><a href="../logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
@@ -50,78 +56,73 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 <h3>Add Deceased Details</h3>
+</br>
 
+<FORM METHOD="POST" ACTION="add-deceased.php">
 
-<FORM METHOD="POST" ACTION="">
-
-<P>
-Deceased ID</P>
-<BLOCKQUOTE>
-<P>
-<INPUT TYPE=TEXT NAME="DeceasedID" SIZE=10 MAXLENGTH=10>
-</P>
-<P>
-MemberId</P>
-<BLOCKQUOTE>
-<P>
-<INPUT TYPE=TEXT NAME="MemberID" SIZE=10 MAXLENGTH=10>
-</P>
-</BLOCKQUOTE>
-<P>
-&nbsp;</P>
-<P>
-&nbsp;</P>
-<table border="0" width="73%" id="table1">
+<table border="0">
 	<tr>
-		<td>Deceased Surname</td>
-		<td>
+		<td align="right">Surname:&nbsp;</td>
+		<td colspan="2">
 <INPUT TYPE=TEXT NAME="DeceasedSurname" SIZE=30 MAXLENGTH=30></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Forenames</td>
-		<td>
-<INPUT TYPE=TEXT NAME="DeceasedForenames" SIZE=50 MAXLENGTH=50></td>
+		<td align="right">Forename(s):&nbsp;</td>
+		<td colspan="2">
+<INPUT TYPE=TEXT NAME="DeceasedForenames" SIZE=30 MAXLENGTH=50></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Birth Date
-<EM> -- dd/mm/yy</EM></td>
-		<td>
-<INPUT TYPE=TEXT NAME="DeceasedBirthDate" SIZE=8 MAXLENGTH=8></td>
+		<td align="right">Birth Date:&nbsp;</td>
+	<td>
+<INPUT TYPE=TEXT NAME="DeceasedBirthDate" SIZE=10 MAXLENGTH=10></td>
+<td><EM>YYYY-MM-DD</EM></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Death Date
-<EM> -- dd/mm/yy</EM></td>
-		<td>
-<INPUT TYPE=TEXT NAME="DeceasedDeathDate" SIZE=8 MAXLENGTH=8></td>
+		<td align="right">Death Date:&nbsp;</td>
+	<td>
+<INPUT TYPE=TEXT NAME="DeceasedDeathDate" SIZE=10 MAXLENGTH=10></td>
+<td><EM>YYYY-MM-DD</EM></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Age</td>
+		<td align="right">Age:&nbsp;</td>
 		<td>
 <INPUT TYPE=TEXT NAME="DeceasedAge" SIZE=4 MAXLENGTH=4></td>
+<td>Years</td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Address</td>
-		<td>
-<INPUT TYPE=TEXT NAME="DeceasedAddress" SIZE=60 MAXLENGTH=60></td>
+		<td align="right">Lived at:&nbsp;</td>
+		<td colspan="2">
+<INPUT TYPE=TEXT NAME="DeceasedAddress" SIZE=30 MAXLENGTH=60></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Town</td>
-		<td>
+		<td align="right">in (Town):&nbsp;</td>
+		<td colspan="2">
 <INPUT TYPE=TEXT NAME="DeceasedTown" SIZE=30 MAXLENGTH=30></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Area</td>
-		<td>
+		<td align="right">Area:&nbsp;</td>
+		<td colspan="2">
 <INPUT TYPE=TEXT NAME="DeceasedArea" SIZE=30 MAXLENGTH=30></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
 	<tr>
-		<td>Deceased Country</td>
-		<td>
+		<td align="right">Country:&nbsp;</td>
+		<td colspan="2">
 <INPUT TYPE=TEXT NAME="DeceasedCountry" SIZE=30 MAXLENGTH=30></td>
 	</tr>
+<tr><td colspan="3">&nbsp;</td></tr>	
+	<tr>
+	<td colspan="3"><INPUT TYPE=SUBMIT VALUE="Add Details" class="btn  btn-block"></td>
+	</tr>
 </table>
-</BLOCKQUOTE>
-<INPUT TYPE=SUBMIT VALUE="Submit Form">&nbsp;
+
 </FORM>
 
 

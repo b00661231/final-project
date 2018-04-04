@@ -1,3 +1,37 @@
+<?php
+
+require '../session-valid.php';
+require '../../config.inc';
+
+$memid = $_SESSION['memberid'];
+$deceasedid = $_POST['deceasedid'];
+$cdate= strftime("%F");
+
+$conn = mysqli_connect($host, $user, $pwd) or die("No connection");
+mysqli_select_db($conn, $dbname) or die("Database will not open");   // opens database 
+
+$query = "SELECT `surname`, `firstnames`, `death-date` FROM `deceased` WHERE `deceased-id`='$deceasedid'";  // sets up deceaded details sql query
+$result = mysqli_query($conn, $query) or die("Invalid deceased details query"); // runs query using open connection
+$row = mysqli_fetch_row($result);
+
+$num = mysqli_num_rows($result); 
+
+
+$query2 = "SELECT `display-name` FROM `member` WHERE `member-id`='$memid'";  // sets up deceaded details sql query
+$result2 = mysqli_query($conn, $query2) or die("Invalid display name query"); // runs query using open connection
+$row2 = mysqli_fetch_row($result2);
+
+$num2 = mysqli_num_rows($result2);
+
+
+$query3 = "SELECT `category-id`, `category` FROM category ORDER BY `order` ASC";  // sets up deceaded details sql query
+$result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // runs query using open connection
+
+
+// mysqli_close($conn);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +63,10 @@
     <ul class="nav navbar-nav">
       <li><a href="../"id="navbtn-MemberProfile""></a></li>
       <li><a href="../search/" id="navbtn-Search"></a></li>
-      <li"><a href="../deceased" id="navbtn-addDeceased"></a></li>
+      <li><a href="../deceased" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;</a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;<?php echo  $_SESSION['username']; ?></a></li>
             <li><a href="../logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
@@ -49,46 +83,54 @@
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<h3>Add Fact Details</h3>
+<h3>Add Fact</h3>
+<h3><?php echo $row[1]." ".$row[0]." (".$row[2].")"; ?></h3>
 
-<FORM METHOD="POST" ACTION="">
-<P>
-FactId</P>
-<BLOCKQUOTE>
-<P>
-<INPUT TYPE=TEXT NAME="FactId" SIZE=10 MAXLENGTH=10>
-</P>
-<P>
-DeceasedId</P>
-<BLOCKQUOTE>
-<P>
-<INPUT TYPE=TEXT NAME="DeceasedId" SIZE=10 MAXLENGTH=10>
-<BR>
-</P>
-</BLOCKQUOTE>
-<P>
-MemberId</P>
-<BLOCKQUOTE>
-<P>
-<INPUT TYPE=TEXT NAME="MemberId" SIZE=10 MAXLENGTH=10></P>
-</BLOCKQUOTE>
-<P>
-&nbsp;</P>
-<table border="0" width="36%" id="table1">
-	<tr>
-		<td>Category</td>
-		<td>
-<INPUT TYPE=TEXT NAME="Category" SIZE=10 MAXLENGTH=10></td>
-	</tr>
-	<tr>
-		<td>Fact Info</td>
-		<td>
-<INPUT TYPE=TEXT NAME="FactInfo" SIZE=12 MAXLENGTH=12></td>
-	</tr>
+
+
+
+<FORM METHOD="POST" ACTION="add-fact.php">
+
+<INPUT TYPE=hidden NAME="DeceasedId" VALUE="<?php echo $deceasedid; ?>">
+<INPUT TYPE=hidden NAME="create-date" VALUE="<?php echo $cdate; ?>">
+<INPUT TYPE=hidden NAME="display-name" VALUE="<?php echo $row2[0]; ?>">
+
+
+<table border="0">
+	<tr><td align="center"><Strong>Select Category</strong></td></tr>
+	<tr><td align="center">
+	<?php
+		echo "<select name='category'>";
+		while ($row3 = mysqli_fetch_row($result3)) {
+			echo "<option value='" . $row3[1] ."'>" . $row3[1] ."</option>";
+		}
+		echo "</select>";
+				
+	?>
+	</td></tr>
+	
+	<tr><td align="center">&nbsp;</td></tr>
+	<tr><td><TEXTAREA NAME="factual-info" ROWS=5 COLS=35></TEXTAREA></td></tr>
+	<tr><d>&nbsp;</td></tr>
+	<tr><td align="center">Added by:&nbsp;<strong><?php echo $row2[0] ?></strong>&nbsp;on&nbsp;<strong><?php echo $cdate ?></strong></td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td colspan="2">
+		
+	<INPUT TYPE=SUBMIT VALUE="Add Fact" class="btn  btn-block">
+		
+	</td></tr>
+	
 </table>
-</BLOCKQUOTE>
-<INPUT TYPE=SUBMIT VALUE="Submit Form">
+
 </FORM>
+
+</br></br>
+
+<form  action='../deceased-profile/' method='POST'>
+		<input type='hidden' name='deceasedid' value='<?php echo $deceasedid ?>'>
+		<input  type='submit' class="btn" value='Cancel'>
+		</form>
+
 
 
 </div></div></div>
@@ -127,6 +169,6 @@ MemberId</P>
 
 </div></div></div>
 
-
+<?php  mysqli_close($conn); ?>
 </body>
 </html>

@@ -12,7 +12,7 @@ a#navbtn-privacy:after {content:"Privacy Policy";}
 
 /* Member Pages Menu Labels */
 
-a#navbtn-MemberProfile:after {content: "Profile"; }
+a#navbtn-MemberProfile:after {content: "Member Profile"; }
 a#navbtn-Search:after {content: "Search"; }
 a#navbtn-addDeceased:after {content: "Add Deceased"; }
 a#navbtn-logout:after {content: "Log Out"; }

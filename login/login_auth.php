@@ -5,7 +5,7 @@
 */
 
 session_start(); 
-//session_destroy();
+
 
 require '../config.inc'; 
 
@@ -32,11 +32,15 @@ if($num2 > 0) //password matches
 
 
 	
-	$query3 = "SELECT `member-type` FROM `member` WHERE `member-email`='$_POST[MemberEmail]'"; 
+	$query3 = "SELECT `member-type`, `display-name`, `member-id` FROM `member` WHERE `member-email`='$_POST[MemberEmail]'"; 
 	
 	$result3 = mysqli_query($conn, $query3) or die("Query died: fpassword");
 	
 	$row = mysqli_fetch_row($result3);
+	
+	$_SESSION['username'] = $_POST[MemberEmail];
+	$_SESSION['displayname']= $row[1];
+	$_SESSION['memberid']= $row[2];
 	
 if ($row[0]=='basic')  
 	{
@@ -53,7 +57,7 @@ else if ($row[0]=='comm')
 	$_SESSION['auth']='comm';
 	header('Location: ../members/');	
 	}
-else if ($row[0]=='admin') // members login
+else if ($row[0]=='admin') 
 	{
 	$_SESSION['auth']='admin';
 	header('Location: ../admin/');	

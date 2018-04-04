@@ -1,3 +1,24 @@
+<?php
+
+require '../session-valid.php';
+require '../../config.inc';
+
+$memid = $_SESSION['memberid'];
+$deceasedid = $_POST['deceasedid'];
+
+$conn = mysqli_connect($host, $user, $pwd) or die("No connection");
+mysqli_select_db($conn, $dbname) or die("Database will not open");   // opens database 
+
+$query = "SELECT `surname`, `firstnames`, `death-date` FROM `deceased` WHERE `deceased-id`='$deceasedid'";  // sets up deceaded details sql query
+$result = mysqli_query($conn, $query) or die("Invalid deceased details query"); // runs query using open connection
+$row = mysqli_fetch_row($result);
+
+$num = mysqli_num_rows($result); 
+
+mysqli_close($conn);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +50,10 @@
     <ul class="nav navbar-nav">
       <li><a href="../"id="navbtn-MemberProfile""></a></li>
       <li><a href="../search/" id="navbtn-Search"></a></li>
-      <li"><a href="../deceased" id="navbtn-addDeceased"></a></li>
+      <li><a href="../deceased" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;</a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;<?php echo  $_SESSION['username']; ?></a></li>
             <li><a href="../logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
@@ -50,46 +71,53 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 <h3>Add Funeral Notice Details</h3>
+<h3><?php echo $row[1]." ".$row[0]." (".$row[2].")"; ?></h3>
 
-<FORM METHOD="POST" ACTION="">
-<P>
-DeceasedId</P>
-<BLOCKQUOTE>
-<P>
-<INPUT TYPE=TEXT NAME="DeceasedId" SIZE=10 MAXLENGTH=10>
-</P>
-<P>
-MemberId</P>
-<BLOCKQUOTE>
-<P>
-<INPUT TYPE=TEXT NAME="MemberId" SIZE=10 MAXLENGTH=10>
-</P>
-</BLOCKQUOTE>
-<table border="0" width="56%" id="table1">
-	<tr>
-		<td width="312">Funeral Date<EM> -- dd/mm/yy</EM></td>
-		<td>
-<INPUT TYPE=TEXT NAME="FuneralDate" SIZE=8 MAXLENGTH=8></td>
+</br></br>
+
+<FORM METHOD="POST" ACTION="add-notice.php">
+
+<INPUT TYPE=hidden NAME="DeceasedId" VALUE="<?php echo $deceasedid; ?>">
+
+
+<table border="0">
+	<tr><td align="right">Date:&nbsp;</td>
+		<td align="left"><INPUT TYPE=TEXT NAME="FuneralDate" SIZE=8 MAXLENGTH=8><EM>&nbsp;YYYY-MM-DD</EM></td>
 	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
-		<td width="312">Funeral Time</td>
-		<td>
-<INPUT TYPE=TEXT NAME="FuneralTime" SIZE=16 MAXLENGTH=16></td>
+		<td align="right"">Time:&nbsp;</td>
+		<td align="left"><INPUT TYPE=TEXT NAME="FuneralTime" SIZE=16 MAXLENGTH=16></td>
 	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
-		<td width="312">Funeral Location</td>
-		<td>
-<INPUT TYPE=TEXT NAME="FuneralLocation" SIZE=60 MAXLENGTH=60></td>
+		<td align="right">Location:&nbsp;</td>
+		<td align="left"><INPUT TYPE=TEXT NAME="FuneralLocation" SIZE=60 MAXLENGTH=60></td>
 	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
-		<td width="312">Funeral Details</td>
-		<td>
-<TEXTAREA NAME="FuneralDetails" ROWS=5 COLS=35></TEXTAREA></td>
+		<td align="right" valign="top">Details:&nbsp;</td>
+		<td align="left"><TEXTAREA NAME="FuneralDetails" ROWS=5 COLS=62></TEXTAREA></td>
 	</tr>
+	
+	<tr><td colspan="2">
+		
+	<INPUT TYPE=SUBMIT VALUE="Add Notice" class="btn  btn-block">
+		
+	</td></tr>
+	
 </table>
-</BLOCKQUOTE>
-<INPUT TYPE=SUBMIT VALUE="Submit Form">&nbsp;
+
 </FORM>
+
+</br></br>
+
+<form  action='../deceased-profile/' method='POST'>
+		<input type='hidden' name='deceasedid' value='<?php echo $deceasedid ?>'>
+		<input  type='submit' class="btn" value='Cancel'>
+		</form>
+
+
 
 </div></div></div>
 

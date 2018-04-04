@@ -50,36 +50,40 @@
 <div class="container" align="center">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<img border="0" src="../images/daily_memorials_logo.jpg">
-<h3>How to Contact Us</h3>
 
+<img border="0" src="../images/daily_memorials_logo.jpg">
+<p>You may contact us via Email at <strong><a href="MAILTO:info@dailymemorials.com">info@dailymemorials.com</a></strong></p>
+<p> or by completing the form below.</p>
+<p>&nbsp;</p>
 
 <form action="" method="post">
-	<table width="400px">
+	<table border="0" width="400px">
 	<tr>
-	<td>
-	First Name: 
-	</td><td>
-	<input type="text" name="first_name" maxlength="50" size="30">  
-	</td></tr><tr><td>
-	Last Name:  
-	</td><td>
-	<input type="text" name="last_name" maxlength="50" size="30"><br/><br/> 
-	</td></tr><tr><td>
-	Email Add : 
-	</td><td>
-	<input type="text" name="email" maxlength="50" size="30"><br/></br>
-	</td></tr><tr><td valign="top">
-	Comments:   
-	</td><td>
-	<textarea name="Comments" maxlength="1000" cols="30" rows="6"></textarea> 
-	</td></tr><tr>
-	<td colspan="2" align="center">
-	<br> <input type="submit" class="button" name="submit" value="Submit">
-	</td></tr>
+	<td align="right">First Name:&nbsp;</td>
+	<td><input type="text" name="first_name" maxlength="50" size="30"></td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+	<td align="right">Last Name:&nbsp;</td>
+	<td><input type="text" name="last_name" maxlength="50" size="30"></td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+	<td align="right">Email Address:&nbsp;</td>
+	<td><input type="text" name="email" maxlength="50" size="30"></td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+	<td valign="top" align="right">Comments:&nbsp;</td>
+	<td><textarea name="Comments" maxlength="1000" cols="32" rows="6"></textarea></td>
+	</tr>
+	<tr>
+	<td colspan="2" align="center">	<br> <input type="submit" value="Send Message" class="btn  btn-block">	</td>
+	</tr>
 	</table>
 	</form>
 	</div>
+	
 	<?php 
 if(isset($_POST['submit'])){
 	$to = "info@dailymemorials.com"; // this is your Email address

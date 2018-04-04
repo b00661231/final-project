@@ -49,27 +49,34 @@
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <img border="0" src="../images/daily_memorials_logo.jpg">
-<h3>Login Page</h3>
+
 
 
 <FORM METHOD="POST" ACTION="login_auth.php">
-<table border="0" width="50%">
+<table border="0">
 	<tr>
-		<td>Login</td>
-		<td>
-<INPUT TYPE=TEXT NAME="MemberEmail" SIZE=50 MAXLENGTH=50></td>
+		<td><INPUT TYPE=TEXT NAME="MemberEmail" SIZE=20 MAXLENGTH=50  placeholder="Email Address"></td>
 	</tr>
+	<tr><td>&nbsp;</td></tr>
 	<tr>
-		<td>Password</td>
-		<td>
-<INPUT TYPE=PASSWORD NAME="MemberPassword" SIZE=50 MAXLENGTH=50></td>
+		<td><INPUT TYPE=PASSWORD NAME="MemberPassword" SIZE=20 MAXLENGTH=50  placeholder="Password"></td>
 	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td><INPUT TYPE=SUBMIT VALUE="Log In" class="btn  btn-block"></td>
+	</tr>
+		<tr><td>&nbsp;</td></tr>
+			
+	<tr><td align="center">OR</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td align="center"><a href="../register/"><button type="button" class="btn  btn-block">Register</button></a></td>
+	</tr>
+	
+	<tr>
+	
 </table>
-<BLOCKQUOTE>
-<P>
-&nbsp;</P>
-</BLOCKQUOTE>
-<INPUT TYPE=SUBMIT VALUE="Submit Form">
+
 </FORM>
 
 

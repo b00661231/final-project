@@ -1,3 +1,9 @@
+<?php
+
+require '../session-valid.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +38,7 @@
       <li"><a href="../deceased" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;</a></li>
+			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;<?php echo  $_SESSION['username']; ?></a></li>
             <li><a href="../logout.php" id="navbtn-logout"><span class="glyphicon glyphicon-log-out">&nbsp; </span></a></li>
     </ul>
   </div>
