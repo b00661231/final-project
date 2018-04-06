@@ -2,6 +2,12 @@
 
 require '../session-valid.php';
 
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +24,7 @@ require '../session-valid.php';
   
   
   <link href="../../styles/memorials.css" rel="stylesheet">
-  <link href="../../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -35,7 +41,7 @@ require '../session-valid.php';
     <ul class="nav navbar-nav">
       <li><a href="../"id="navbtn-MemberProfile""></a></li>
       <li><a href="../search/" id="navbtn-Search"></a></li>
-      <li"><a href="../deceased" id="navbtn-addDeceased"></a></li>
+      <li><a href="../deceased" id="navbtn-addDeceased"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
 			<li class="active"><a class="navbar-brand">Logged in as:&nbsp;<?php echo  $_SESSION['username']; ?></a></li>
@@ -55,7 +61,21 @@ require '../session-valid.php';
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<h3>Upgrade Membership Details</h3>
+<h3>Upgrade Membership</h3>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>TODO</p>
+
+<p>Upgrade membership to Full membership or Commercial Membership.</p>
+
+<p>Full Membership allows Detailed Search of Site's Database.</p>
+
+<p>Commercial Membership allows company to advertise on the Memorials added by them..</p>
+
+
+
 
 </div></div></div>
 

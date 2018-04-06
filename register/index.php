@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +20,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-
-  
-  
+ 
   <link href="../styles/memorials.css" rel="stylesheet">
-  <link href="../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -28,7 +38,7 @@
     
     <ul class="nav navbar-nav">
       <li><a href="../" id="navbtn-home"></a></li>
-      <li><a href="../about/" id="navbtn-about"></a></li>
+      <!-- <li><a href="../about/" id="navbtn-about"></a></li> -->
       <li><a href="../contact/" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -56,7 +66,7 @@
 
 </br>
 
-<h1>Register New User</h1>
+<h1 id="register-head"></h1>
 	
 	</br></br>
 	
@@ -64,39 +74,53 @@
 	
 	
 	
-<form action="reg_auth.php" method="POST">
+<form action="reg_auth.php"method="POST">
 
 <table border="0" width="80%">
 <tr>
-	<td align="right">Username:&nbsp;</td>
-	<td><input type="text" size="16" maxLength="20" name="login_name"></td>
-	<td>Please enter a valid email address.</td>
+	<td align="right" id="register-lab1"></td>
+	<td><input type="text" id="emailLogin" size="16" maxLength="20" name="login_name"></td>
+	<td id="register-text1"></td>
 </tr>
 
-<tr><td colspan=3></br></br></td></tr>
-
-<tr>
-	<td align="right">Password:&nbsp; </td>
-	<td><input type="password" size="16" maxLength="20" name="login_passwd"></td>
-	<td rowspan=2>Your password should have at least 8 characters</br>
-	and include at least: a Capital Letter,</br>
-	a number and a symbol or a punctuation mark.</br></td>
-</tr>
-<tr>
-	<td align="right">Re-type Password:&nbsp; </td>
-	<td><input type="password" size="16" maxLength="20" name="retype_passwd"></td>
-</tr>
-<tr>
-
-<tr><td colspan=3></br></br></td></tr>
-
-<tr>
-<td align="right">Display Name:&nbsp;</td>
-<td><input type='text' size='16' maxLength='30' name='dname'></td>
-<td>Name to be Displayed on Memorials.</td>
+<tr><td></br></br></td>
+<td colspan="2"><span id="err1" class="error"></span></td>
 </tr>
 
-<tr><td colspan=3></br></br></td></tr>
+<tr>
+	<td align="right" id="register-lab2"></td>
+	<td><input type="password" id="pw1" size="16" maxLength="20" name="login_passwd"></td>
+	<td id="register-text2"></td>
+	</td>
+</tr>
+
+<tr>
+	<td></br></br></td>
+	<td><span id="err2" class="error"></span></td>
+	<td id="register-text2a"></td>
+	</td>
+</tr>
+
+<tr>
+	<td align="right" id="register-lab3"></td>
+	<td><input type="password" id="pw2" size="16" maxLength="20" name="retype_passwd"></td>
+	<td id="register-text2b"></td>
+</tr>
+<tr>
+
+<tr><td></br></br></td>
+<td colspan="2"><span id="err3" class="error"></span></td>
+</tr>
+
+<tr>
+<td align="right" id="register-lab4"></td>
+<td><input type='text' id="name" size='16' maxLength='30' name='dname'></td>
+<td id="register-text4"></td>
+</tr>
+
+<tr><td></br></br></td>
+<td colspan="2"><span id="err4" class="error"></span></td>
+</tr>
 
 	<td align="center" colspan=4><input type="submit" value="Register" class="btn  btn-block"></td>
 </tr>
@@ -161,6 +185,14 @@
 </nav>
 
 </div></div></div>
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+ <script src="../scripts/validate.js" type="text/javascript"></script>
 
 
 </body>

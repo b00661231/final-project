@@ -1,5 +1,11 @@
 <?php
 
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
 require 'session-valid.php';
 require '../config.inc';
 
@@ -30,11 +36,9 @@ mysqli_close($conn);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <script src="../scripts/tabs-mem.js"></script>
-  
-  
+    
   <link href="../styles/memorials.css" rel="stylesheet">
-  <link href="../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -77,7 +81,7 @@ mysqli_close($conn);
 <tr>
 <td>Display Name:<strong> <?php echo  $_SESSION['displayname']; ?></strong></td>
 <td>Membership Type:<strong> <?php echo  $_SESSION['auth']; ?></strong></td>
-<td><button type="button" class="btn">Upgrade</button></td>
+<td><a href="upgrade/"><button type="button" class="btn">Upgrade</button></a></td>
 </tr>
 </table>
 

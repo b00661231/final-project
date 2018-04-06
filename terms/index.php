@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +27,7 @@
   
   
   <link href="../styles/memorials.css" rel="stylesheet">
-  <link href="../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -28,7 +43,7 @@
     
     <ul class="nav navbar-nav">
       <li><a href="../" id="navbtn-home"></a></li>
-      <li><a href="../about/" id="navbtn-about"></a></li>
+      <!-- <li><a href="../about/" id="navbtn-about"></a></li> -->
       <li><a href="../contact/" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">

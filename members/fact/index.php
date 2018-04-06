@@ -3,6 +3,12 @@
 require '../session-valid.php';
 require '../../config.inc';
 
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
 $memid = $_SESSION['memberid'];
 $deceasedid = $_POST['deceasedid'];
 $cdate= strftime("%F");
@@ -42,11 +48,9 @@ $result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // run
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <script src="../../scripts/tabs-mem.js"></script>
-  
-  
+   
   <link href="../../styles/memorials.css" rel="stylesheet">
-  <link href="../../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 

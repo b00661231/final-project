@@ -3,6 +3,12 @@
 require '../session-valid.php';
 require '../../config.inc';
 
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
 $memid = $_SESSION['memberid'];
 
 if(isset($_SESSION['deceasedid'])){
@@ -35,8 +41,8 @@ $result4 = mysqli_query($conn, $query4) or die("Invalid deceased details query")
 $num4 = mysqli_num_rows($result4); 
 
 
-$query5 = "SELECT * FROM `photo` WHERE `deceased-id`='$deceasedid'";  // sets up photo sql query
-$result5 = mysqli_query($conn, $query5) or die("Invalid deceased details query"); // runs query using open connection
+$query5 = "SELECT `filename` FROM `photo` WHERE `deceased-id`='$deceasedid'";  // sets up photo sql query
+$result5 = mysqli_query($conn, $query5) or die("Invalid photo query"); // runs query using open connection
 $num5 = mysqli_num_rows($result5); 
 
 mysqli_close($conn);
@@ -53,11 +59,9 @@ mysqli_close($conn);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <script src="../../scripts/tabs-mem.js"></script>
-  
-  
+   
   <link href="../../styles/memorials.css" rel="stylesheet">
-  <link href="../../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -98,7 +102,7 @@ mysqli_close($conn);
 
 
 
-<table width="50%">
+<table width="500">
 <tr><td>
 
 <?php
@@ -143,17 +147,27 @@ mysqli_close($conn); // close database connection
 </td>
 <td align="center">
 
-<img src="../images/blank.jpg"></br></br>
-<form  action='../photo/' method='POST'>
-		<input type='hidden' name='deceasedid' value=<?php echo $deceasedid ?>>
+<?php
+	if($num5 >0){
+		
+	$row5 = mysqli_fetch_row($result5);
+		
+	echo "<img src='../photo/upload/".$row5[0]."' height='200px' width='150px'>";	
+	
+	}else{
+
+		echo "<img src='../images/blank.jpg'></br></br>
+		<form  action='../photo/' method='POST'>
+		<input type='hidden' name='deceasedid' value=".$deceasedid.">
 		<input  type='submit' class='btn' value='Add Photo'>
 		</form>
+		";
 
-		<!-- TODO show uploaded photo if there is one
-		 if not show blank with upload button visible -->
+		}
+?>
 
-</td></tr>
-</table>
+		</td></tr>
+		</table>
 
 
 <h3>Funeral Notice</h3>

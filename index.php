@@ -1,3 +1,29 @@
+<?php
+
+session_start();
+
+require 'config.inc';
+
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
+
+
+$conn = mysqli_connect($host, $user, $pwd) or die("No connection");
+mysqli_select_db($conn, $dbname) or die("Database will not open");   // opens database 
+
+$query = "SELECT * FROM deceased ORDER BY `deceased-id` DESC";  // sets up deceaded details sql query
+$result = mysqli_query($conn, $query) or die("Invalid deceased details query"); // runs query using open connection
+$num = mysqli_num_rows($result); 
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +38,7 @@
   
   
   <link href="styles/memorials.css" rel="stylesheet">
-  <link href="styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -28,8 +54,12 @@
     
     <ul class="nav navbar-nav">
       <li class="active"><a href="#" id="navbtn-home"></a></li>
-      <li><a href="about/" id="navbtn-about"></a></li>
+      <!-- <li><a href="about/" id="navbtn-about"></a></li> -->
       <li><a href="contact/" id="navbtn-contact"></a></li>
+	 	  <li><a href="language/english.php"><img src="images/english.jpg"></a></li>
+	  <li><a href="language/french.php"><img src="images/french.jpg"></a></li>
+	  <li><a href="language/german.php"><img src="images/german.jpg"></a></li>
+	  <li><a href="language/spanish.php"><img src="images/spanish.jpg"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="register/" id="navbtn-register"><span class="glyphicon glyphicon-user">&nbsp; </span></a></li>
@@ -44,7 +74,6 @@
 <div id="HomePage-Contents">
 
 
-<!-- Basic Search Form -->
 
 
 <div class="container" align="center">
@@ -52,19 +81,11 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <img border="0" src="images/daily_memorials_logo.jpg">
 
-<div id="search">
-<form action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Deceased's Name">
-        <button type="submit" class="btn btn-default">Search</button>
-		</div>
-    </form>
-	</div>
 
 </div></div></div>
 
 
-<!-- Recent Memorials and Notices Tables -->
+<!-- Recent Memorials and Intro -->
 
 
 <div class="container" align="center">
@@ -76,19 +97,11 @@
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-  <h3>Recent Notices</h3>
-  <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
+  <p align="left" id="home-p1"></p>
+  <p align="left" id="home-p2"></p>
+  <p align="left" id="home-p3"></p>
+  <p align="left" id="home-p4"></p>
+     
   
 </div>
 
@@ -96,19 +109,33 @@
 
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-  <h3>Recent Memorials</h3>
-  <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
-   <p>blah</p>
-  <p>blah</p>
+  <h3 id="home-head1"></h3>
+  
+  <?php
+
+if ($num==0){
+	echo "<p>No Data Available</p>";
+	}else{
+	echo"<table border='0'>";
+	$count=0;	
+	while($row = mysqli_fetch_row($result))      //  while there are rows available
+		{
+		if($count<10)
+			{
+		echo"<tr>
+		<td align='left'>".$row[1].", ".$row[2]."</td>
+		<td align='left'>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align='left'>".$row[4]."</td>
+		</tr>";
+		$count++;
+			}
+		};
+	echo"</table>";
+};
+
+mysqli_close($conn); // close database connection
+
+?>
   
 </div>
 </div>

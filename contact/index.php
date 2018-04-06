@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +27,7 @@
   
   
   <link href="../styles/memorials.css" rel="stylesheet">
-  <link href="../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -28,7 +43,7 @@
     
     <ul class="nav navbar-nav">
       <li><a href="../" id="navbtn-home"></a></li>
-      <li><a href="../about/" id="navbtn-about"></a></li>
+      <!-- <li><a href="../about/" id="navbtn-about"></a></li> -->
       <li class="active"><a href="#" id="navbtn-contact"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -52,33 +67,33 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 <img border="0" src="../images/daily_memorials_logo.jpg">
-<p>You may contact us via Email at <strong><a href="MAILTO:info@dailymemorials.com">info@dailymemorials.com</a></strong></p>
-<p> or by completing the form below.</p>
+<p id="contact-p1"><strong><a href="MAILTO:info@dailymemorials.com">info@dailymemorials.com</a></strong></p>
+<p id="contact-p2"></p>
 <p>&nbsp;</p>
 
 <form action="" method="post">
 	<table border="0" width="400px">
 	<tr>
-	<td align="right">First Name:&nbsp;</td>
+	<td align="right" id="contact-lab1"></td>
 	<td><input type="text" name="first_name" maxlength="50" size="30"></td>
 	</tr>
 	<tr><td>&nbsp;</td></tr>
 	<tr>
-	<td align="right">Last Name:&nbsp;</td>
+	<td align="right" id="contact-lab2"></td>
 	<td><input type="text" name="last_name" maxlength="50" size="30"></td>
 	</tr>
 	<tr><td>&nbsp;</td></tr>
 	<tr>
-	<td align="right">Email Address:&nbsp;</td>
+	<td align="right" id="contact-lab3"></td>
 	<td><input type="text" name="email" maxlength="50" size="30"></td>
 	</tr>
 	<tr><td>&nbsp;</td></tr>
 	<tr>
-	<td valign="top" align="right">Comments:&nbsp;</td>
+	<td valign="top" align="right" id="contact-lab4"></td>
 	<td><textarea name="Comments" maxlength="1000" cols="32" rows="6"></textarea></td>
 	</tr>
 	<tr>
-	<td colspan="2" align="center">	<br> <input type="submit" value="Send Message" class="btn  btn-block">	</td>
+	<td colspan="2" align="center">	<br> <input id="contact-b1" type="submit" value="Send Message" class="btn  btn-block">	</td>
 	</tr>
 	</table>
 	</form>

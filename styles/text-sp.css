@@ -1,0 +1,123 @@
+
+/* Free Pages Menu Labels */
+
+a#navbtn-home:after {content: "Página de inicio"; }
+a#navbtn-about:after {content: "Sobre nosotros";}
+a#navbtn-contact:after {content:"Contáctenos";}
+a#navbtn-register:after {content:"Registro";}
+a#navbtn-login:after {content: "Iniciar sesión";}
+a#navbtn-terms:after {content: "Términos y condiciones";}
+a#navbtn-privacy:after {content:"Política de privacidad";}
+
+
+/* Member Pages Menu Labels */
+
+a#navbtn-MemberProfile:after {content: "Perfil de miembro"; }
+a#navbtn-Search:after {content: "Buscar"; }
+a#navbtn-addDeceased:after {content: "Añadir difunto"; }
+a#navbtn-logout:after {content: "Cerrar sesión"; }
+
+
+
+
+
+/* Homepage */
+
+p#home-p1:after {content:"Nuestro objetivo es proporcionar una plataforma gratuita para que las familias y amigos puedan dejar un recuerdo duradero de los fallecidos.";}
+p#home-p2:after {content:"La inscripción es GRATUITA y discreta y le permitirá comenzar a construir una imagen duradera de su ser querido.";}
+p#home-p3:after {content:"Además de sus datos personales, puede subir una foto, agregar detalles del funeral y hechos relevantes sobre su vida.";}
+p#home-p4:after {content:"A medida que los miembros de la familia crecen, a menudo olvidan los detalles sobre sus seres queridos y creemos que esta información factual debe preservarse para las generaciones futuras.";}
+
+h3#home-head1:after {content:"Memoriales recientes";}
+
+
+
+/* Contact */
+
+p#contact-p1:before {content:"Puede contactarnos por correo electrónico a ";}
+p#contact-p2:after {content:" o completando el formulario a continuación.";}
+
+td#contact-lab1:after {content:"Nombre de pila: ";}
+td#contact-lab2:after {content:"Apellido: ";}
+td#contact-lab3:after {content:"Dirección de correo electrónico: ";}
+td#contact-lab4:after {content:"Comentarios: ";}
+
+input#contact-b1:after {content:"Enviar mensaje";}
+
+
+
+/* Register */
+
+h1#register-head:after {content:"Registrar nuevo usuario";}
+
+td#register-lab1:after {content:"Nombre de usuario: ";}
+td#register-lab2:after {content:"Contraseña: ";}
+td#register-lab3:after {content:"Vuelva a escribir la contraseña: ";}
+td#register-lab4:after {content:"Nombre para mostrar: ";}
+
+td#register-text1:after {content:"Por favor, introduce una dirección de correo electrónico válida.";}
+td#register-text2:after {content:"Su contraseña debe tener al menos 8 caracteres";}
+td#register-text2a:after {content:"e incluir al menos: una Mayúscula,";}
+td#register-text2b:after {content:"un número y un símbolo o un signo de puntuación.";}
+td#register-text4:after {content:"Nombre que se mostrará en los monumentos conmemorativos.";}
+
+span#err1:after {content:"Se requiere una dirección de correo electrónico válida.";}
+span#err2:after {content:"La contraseña no es segura.";}
+span#err3:after {content:"Las contraseñas no coinciden!";}
+span#err4:after {content:"Este campo es requerido";}
+
+
+/* Login */
+
+td#log-lab1:after {content:"Dirección de correo electrónico";}
+td#log-lab2:after {content:"Contraseña";}
+
+
+
+
+/* Terms and Conditions */
+
+h3#head-terms:after {content:"Términos y Condiciones";}
+p#para1-terms:after {content:"Le pedimos que se tome el tiempo de leer los términos de las condiciones para usar el servicio que se detallan a continuación y que estén diseñados para ser fáciles de entender, justos y razonables. Le agradeceríamos que entendiera que debido a la naturaleza de la configuración y el uso de un sitio conmemorativo en línea que puede estar destinado al acceso público perpetuo, debemos tener condiciones claras con respecto a la autoridad, el contenido y la privacidad de los contribuyentes y donantes.";}
+
+
+h3#head-summary:after {content:"Resumen de la declaración del uso previsto";}
+p#para1-summary:after {content:"El servicio permite que familiares, amigos y colegas se reúnan para crear un monumento a un ser querido.";}
+
+
+h3#head-contributors:after {content:"Contribuyentes conmemorativos";}
+p#para1-contributors:after{content:"Cualquier persona que desee contribuir a un memorial mediante la carga de mensajes, historias, hechos o imágenes, será registrada en el servicio la primera vez que decida hacer esto.";}
+
+
+h3#head-copyright:after{content:"Copyright y material";}
+p#para1-copyright:after{content:"Los colaboradores conservan los derechos de autor de todo el contenido que cargan, pero conceden a DailyMemorials.com una licencia mundial, libre de derechos de autor y no exclusiva a perpetuidad para usar y reproducir el contenido. Asegúrate de que el contenido que subas no infrinja los derechos de autor de otras personas. Toda propiedad intelectual relacionada con el sitio web es propiedad de DailyMemorials.com.";}
+p#para2-copyright:after{content:"Cualquier material que pueda ser visto como ofensivo o inapropiado puede ser eliminado por DailyMemorials.com a su exclusivo criterio. Esta acción puede incluir la eliminación completa de un monumento sin previo aviso.";}
+p#para3-copyright:after{content:"No se permite ninguna reedición de ninguna parte del sitio web, incluido el contenido, sin el permiso expreso por escrito de DailyMemorials.com. Cualquier incumplimiento de esto por individuos, empresas o cualquier otra organización se considerará una violación del espíritu del servicio y del derecho de autor legal y nos reservamos el derecho de tomar medidas para proteger los intereses tanto de DailyMemorials.com como de nuestros colaboradores.";}
+
+
+h3#head-liability:after{content:"Responsabilidad";}
+p#para1-liability:after{content:"Si bien tratamos de tomar las precauciones razonables para proteger y almacenar su información, DailyMemorials.com no se hace responsable de ninguna pérdida o daño, incluida la pérdida temporal o permanente de acceso. Como parte del contrato, usted acepta que DailyMemorials.com (sus empleados, fideicomisarios, socios o cualquier persona relacionada con la organización) no es ni será responsable ante usted ni ante terceros por ninguna modificación, suspensión o interrupción del servicio. por alguna razon.";}
+p#para2-liability:after{content:"Usted garantiza que posee todos los derechos de propiedad intelectual del contenido que carga y acepta que DailyMemorials.com no es responsable en modo alguno del contenido subido, a pesar de su autoridad para eliminar cualquier contenido inapropiado según su propio criterio, y también acepta indemnizar a DailyMemorials.com por cualquier reclamo de daños directos o indirectos ahora o en el futuro.";}
+
+
+h3#header-cookies:after{content:"Cookies";}
+p#para1-cookies:after{content:"Usamos cookies para mejorar el servicio del sitio web, como ayudar a nuestro sitio web a reconocerlo cuando lo visite. Las cookies son un archivo de identificación almacenado por su navegador en su dispositivo, sin embargo, la mayoría de los navegadores le ofrecen opciones para rechazar las cookies de terceros si lo desea; elegir esta opción tendrá un impacto sobre la usabilidad de muchos servicios web, incluido el nuestro.";}
+
+
+h3#head-updates:after{content:"Actualizaciones a los Términos y Condiciones";}
+p#para1-updates:after{content:"DailyMemorials.com se reserva el derecho de actualizar estos términos y condiciones y todos los usuarios seguirán sujetos a los términos modificados que se rigen por las leyes del Reino Unido. Su uso del servicio indica la aceptación de estos términos y puede desactivar su cuenta en cualquier momento si no desea seguir cumpliendo con los términos y condiciones del servicio.";}
+p#para2-updates{content:"Actualizaremos esta política de vez en cuando publicando una nueva versión en nuestro sitio web y proporcionando enlaces visibles en los puntos apropiados a lo largo del servicio. Debería consultar esta página de vez en cuando para asegurarse de que está familiarizado y contento con los cambios. Si tiene alguna consulta, contáctenos en support@DailyMemorials.com";}
+p#para3-updates:after{content:"La versión actual está fechada el 1 de marzo de 2018";}
+
+
+
+/* Privacy Policy */
+
+h3#head-privacy:after{content:"Política de privacidad";}
+p#para1-privacy:after{content:"Tomamos en serio su privacidad y detallamos a continuación cómo trataremos su información personal. Hemos implementado precauciones técnicas y organizativas adecuadas para garantizar que su información esté segura, incluido el uso de servidores seguros y cifrado de datos.";}
+p#para2-privacy:after{content:"No se almacena ninguna información personal que no sea su dirección de correo electrónico y su nombre, y NO se compartirán con ningún tercero.";}
+
+
+
+
+

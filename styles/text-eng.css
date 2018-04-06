@@ -21,6 +21,58 @@ a#navbtn-logout:after {content: "Log Out"; }
 
 
 
+/* Homepage */
+
+p#home-p1:after {content:"Our aim is to provide a free platform to provide families and friends to leave a lasting memory of those who have passed away.";}
+p#home-p2:after {content:"Registration is FREE and unobtrusive and will allow you to start building a lasting picture of your loved one.";}
+p#home-p3:after {content:"In addition to their personal details, you may upload a photo, add funeral details, and relevant facts about their life.";}
+p#home-p4:after {content:"As family members grow older, they often forget details about loved ones and we believe that this factual information should be preserved for future generations.";}
+
+h3#home-head1:after {content:"Recent Memorials";}
+
+
+
+/* Contact */
+
+p#contact-p1:before {content:"You may contact us via Email at ";}
+p#contact-p2:after {content:" or by completing the form below.";}
+
+td#contact-lab1:after {content:"First Name: ";}
+td#contact-lab2:after {content:"Last Name: ";}
+td#contact-lab3:after {content:"Email Address: ";}
+td#contact-lab4:after {content:"Comments: ";}
+
+input#contact-b1:after {content:"Send Message";}
+
+
+
+/* Register */
+
+h1#register-head:after {content:"Register New User";}
+
+td#register-lab1:after {content:"Username: ";}
+td#register-lab2:after {content:"Password: ";}
+td#register-lab3:after {content:"Re-type Password: ";}
+td#register-lab4:after {content:"Display Name: ";}
+
+td#register-text1:after {content:"Please enter a valid email address.";}
+td#register-text2:after {content:"Your password should have at least 8 characters";}
+td#register-text2a:after {content:"and include at least: a Capital Letter,";}
+td#register-text2b:after {content:"a number and a symbol or a punctuation mark.";}
+td#register-text4:after {content:"Name to be Displayed on Memorials.";}
+
+span#err1:after {content:"A valid email address is required.";}
+span#err2:after {content:"Password not secure.";}
+span#err3:after {content:"Passwords do not Match!";}
+span#err4:after {content:"This field is required";}
+
+
+
+/* Login */
+
+td#log-lab1:after {content:"Email Address";}
+td#log-lab2:after {content:"Password";}
+
 
 
 

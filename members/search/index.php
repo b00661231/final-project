@@ -2,6 +2,12 @@
 
 require '../session-valid.php';
 
+if(!isset($_SESSION['language'])){
+	$lang = "text-eng.css";
+}else{
+	$lang = $_SESSION['language'];	
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,11 +20,9 @@ require '../session-valid.php';
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <script src="../../scripts/tabs-mem.js"></script>
-  
-  
+   
   <link href="../../styles/memorials.css" rel="stylesheet">
-  <link href="../../styles/text-eng.css" rel="stylesheet">
+  <link id="language" href="../../styles/<?php echo $lang; ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -56,6 +60,17 @@ require '../session-valid.php';
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 <h3>Member Search</h3>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>TODO</p>
+
+<p>Search Database utility with 2 levels of results.</p>
+
+<p>Basic Lisatings for basic members</p>
+
+<p>Full listings for paid members.</p>
 
 </div></div></div>
 
