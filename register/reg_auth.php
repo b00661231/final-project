@@ -51,8 +51,7 @@ if (!$err == 'Y') // if no errors write to database and redirect
 
 //add record to database
 
-// $epass=md5($pass1); used for encrypting password
-$epass=$pass1;
+$epass=md5($pass1); 
 
 $query2 = "INSERT INTO `login` (`username`, `password`) VALUES ('$uname', '$epass');";  // sets up sql query
 $result2 = mysqli_query($conn, $query2) or die("Invalid Login Query"); // runs query using open connection

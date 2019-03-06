@@ -27,14 +27,10 @@ $query2 = "SELECT `display-name` FROM `member` WHERE `member-id`='$memid'";  // 
 $result2 = mysqli_query($conn, $query2) or die("Invalid display name query"); // runs query using open connection
 $row2 = mysqli_fetch_row($result2);
 
-$num2 = mysqli_num_rows($result2);
+$num2 = mysqli_num_rows($result2); 
 
 
-$query3 = "SELECT `category-id`, `category` FROM category ORDER BY `order` ASC";  // sets up deceaded details sql query
-$result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // runs query using open connection
-
-
-// mysqli_close($conn);
+mysqli_close($conn);
 
 ?>
 
@@ -79,7 +75,7 @@ $result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // run
 </div></div></div>
 
 
-<div id="Add Fact Contents">
+<div id="Add Link Contents">
 
 
 
@@ -87,13 +83,13 @@ $result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // run
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<h3>Add Fact</h3>
+<h3>Add Link</h3>
 <h3><?php echo $row[1]." ".$row[0]." (".$row[2].")"; ?></h3>
 
+</br></br>
 
 
-
-<FORM METHOD="POST" ACTION="add-fact.php">
+<FORM METHOD="POST" ACTION="add-link.php">
 
 <INPUT TYPE=hidden NAME="DeceasedId" VALUE="<?php echo $deceasedid; ?>">
 <INPUT TYPE=hidden NAME="create-date" VALUE="<?php echo $cdate; ?>">
@@ -101,26 +97,25 @@ $result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // run
 
 
 <table border="0">
-	<tr><td align="center"><Strong>Select Category</strong></td></tr>
-	<tr><td align="center">
-	<?php
-		echo "<select name='category'>";
-		while ($row3 = mysqli_fetch_row($result3)) {
-			echo "<option value='" . $row3[1] ."'>" . $row3[1] ."</option>";
-		}
-		echo "</select>";
-				
-	?>
-	</td></tr>
-	
-	<tr><td align="center">&nbsp;</td></tr>
-	<tr><td><TEXTAREA NAME="factual-info" ROWS=5 COLS=35></TEXTAREA></td></tr>
+	<tr>
+	<td align="right">Link Description</td>
+	<td><input type="text" id="linkdescription" size="16" maxLength="30" name="linkdescription"></td>
+	</tr>
+
+	<tr>
+	<td align="right">Link URL</td>
+	<td><input type="text" id="linkurl" size="16" maxLength="30" name="linkurl"></td>
+	</tr>
+
+
+	<tr><td align="center">How does this link relate to the deceased></td></tr>
+	<tr><td><TEXTAREA NAME="reason" ROWS=5 COLS=35></TEXTAREA></td></tr>
 	<tr><d>&nbsp;</td></tr>
 	<tr><td align="center">Added by:&nbsp;<strong><?php echo $row2[0] ?></strong>&nbsp;on&nbsp;<strong><?php echo $cdate ?></strong></td></tr>
 	<tr><td>&nbsp;</td></tr>
 	<tr><td colspan="2">
 		
-	<INPUT TYPE=SUBMIT VALUE="Add Fact" class="btn  btn-block">
+	<INPUT TYPE=SUBMIT VALUE="Add Link" class="btn  btn-block">
 		
 	</td></tr>
 	
@@ -140,7 +135,7 @@ $result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // run
 </div></div></div>
 
 
-</div> <!-- End Add Fact Contents -->
+</div> <!-- End Add Link Contents -->
 
 
 
@@ -173,6 +168,6 @@ $result3 = mysqli_query($conn, $query3) or die("Invalid category query"); // run
 
 </div></div></div>
 
-<?php  mysqli_close($conn); ?>
+
 </body>
 </html>

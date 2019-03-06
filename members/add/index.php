@@ -95,6 +95,14 @@ mysqli_close($conn);
 <INPUT TYPE=hidden NAME="create-date" VALUE="<?php echo $cdate; ?>">
 <INPUT TYPE=hidden NAME="display-name" VALUE="<?php echo $row2[0]; ?>">
 
+<!-- Type of Message -->
+<p>Meaasge Type</p>
+<select name="message-type">
+<option value="Memorial">Memorial</option>
+<option value="Fact">Fact</option>
+<option value="Story">Story</option>
+</select>
+
 <table border="0">
 	<tr><td align="center">Message</td></tr>
 	<tr><td><TEXTAREA NAME="message" ROWS=5 COLS=35></TEXTAREA></td></tr>
@@ -103,7 +111,7 @@ mysqli_close($conn);
 	<tr><td>&nbsp;</td></tr>
 	<tr><td colspan="2">
 		
-	<INPUT TYPE=SUBMIT VALUE="Add Notice" class="btn  btn-block">
+	<INPUT TYPE=SUBMIT VALUE="Add Message" class="btn  btn-block">
 		
 	</td></tr>
 	

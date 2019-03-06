@@ -18,6 +18,8 @@ if(isset($_SESSION['deceasedid'])){
 }
 
 unset($_SESSION['deceasedid']);
+unset($_SESSION['maxrecords']);
+unset($_SESSION['currecord']);
 
 
 $conn = mysqli_connect($host, $user, $pwd) or die("No connection");
@@ -31,19 +33,27 @@ $query2 = "SELECT * FROM `notice` WHERE `deceased-id`='$deceasedid'";  // sets u
 $result2 = mysqli_query($conn, $query2) or die("Invalid notice query"); // runs query using open connection
 $num2 = mysqli_num_rows($result2);
 
-$query3 = "SELECT `member-name`, `message`, `creation-date` FROM `memorial` WHERE `deceased-id` = '$deceasedid'";  // sets up memorials sql query
+$query3 = "SELECT `member-name`, `message`, `creation-date` FROM `memorial` WHERE `deceased-id` = '$deceasedid' AND `Entry_Type` = 'Memorial'";  // sets up memorials sql query
 $result3 = mysqli_query($conn, $query3) or die("Invalid memorial query"); // runs query using open connection
 $num3 = mysqli_num_rows($result3);
 
 
-$query4 = "SELECT `submitted-by`, `category`, `fact`, `create-date` FROM fact WHERE `deceased-id`='$deceasedid'";  // sets up facts sql query
-$result4 = mysqli_query($conn, $query4) or die("Invalid deceased details query"); // runs query using open connection
-$num4 = mysqli_num_rows($result4); 
+$query4 = "SELECT `member-name`, `message`, `creation-date` FROM `memorial` WHERE `deceased-id` = '$deceasedid' AND `Entry_Type` = 'Story'";  // sets up memorials sql query
+$result4 = mysqli_query($conn, $query4) or die("Invalid story query"); // runs query using open connection
+$num4 = mysqli_num_rows($result4);
 
 
 $query5 = "SELECT `filename` FROM `photo` WHERE `deceased-id`='$deceasedid'";  // sets up photo sql query
 $result5 = mysqli_query($conn, $query5) or die("Invalid photo query"); // runs query using open connection
 $num5 = mysqli_num_rows($result5); 
+
+$query6 = "SELECT `member-name`, `message`, `creation-date` FROM `memorial` WHERE `deceased-id` = '$deceasedid' AND `Entry_Type` = 'Fact'";  // sets up memorials sql query
+$result6 = mysqli_query($conn, $query6) or die("Invalid fact query"); // runs query using open connection
+$num6 = mysqli_num_rows($result6);
+
+$query7 = "SELECT `Link_Text`, `Link_Ref`, `member-name`, `Reason`, `creation-date` FROM `Link` WHERE `deceased_ID` = '$deceasedid'";  // sets up memorials sql query
+$result7 = mysqli_query($conn, $query7) or die("Invalid link query"); // runs query using open connection
+$num7 = mysqli_num_rows($result7);
 
 mysqli_close($conn);
 
@@ -98,8 +108,13 @@ mysqli_close($conn);
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
+
+
 <h3>Deceased Profile Details</h3>
 
+
+<table width=70%>
+<tr><td width=50%>
 
 
 <table width="500">
@@ -169,7 +184,7 @@ mysqli_close($conn); // close database connection
 		</td></tr>
 		</table>
 
-
+<div align="center">
 <h3>Funeral Notice</h3>
 
 <?php
@@ -214,71 +229,253 @@ mysqli_close($conn); // close database connection
 
 ?>
 
-<h3>Memorials</h3>
+</div>
+</td>
+<td width = 50% valign="top" align="center">
 
 
+<!-- Trigger the modal with a button -->
 <?php
-
 if ($num3==0){
-	echo "<p>No Memorials Available</p>
-	<form  action='../memorial/' method='POST'>
-		<input type='hidden' name='deceasedid' value= '$deceasedid' >
-		<input  type='submit' class='btn' value='Add Memorial'>
-		</form>";
+	echo "</br></br><p>No Memorials Available</p>";
 	}else{
-			
-	while($row3 = mysqli_fetch_row($result3))      //  while there are rows available
-	{
-		echo"<table border='0' width='300'><tr>
-		<tr><td align='left'>\"".$row3[1]."\"</td></tr>
-		<tr><td align='center'>Posted by: <strong>".$row3[0]."</strong> on <strong>".$row3[2]."</strong></td></tr>
-		</table></br>";
-				
+	echo "</br></br>
+
+<button type=''button' class='btn' data-toggle='modal' data-target='#memorials'>Memorials ($num3)</button>";
 	};
-	echo"<form  action='../memorial/' method='POST'>
+	
+if ($num4==0){
+	echo "</br></br><p>No Stories Available</p>";
+	}else{
+	echo "</br></br>
+
+<button type=''button' class='btn' data-toggle='modal' data-target='#stories'>Stories ($num4)</button>";
+	};
+	
+if ($num6==0){
+	echo "</br></br><p>No Facts Available</p>";
+	}else{
+	echo "</br></br>
+
+<button type=''button' class='btn' data-toggle='modal' data-target='#facts'>Facts ($num6)</button>";
+	};
+	
+if ($num7==0){
+	echo "</br></br><p>No Links Available</p></br></br>";
+	}else{
+	echo "</br></br>
+
+<button type=''button' class='btn' data-toggle='modal' data-target='#links'>Links ($num7)</button></br></br>";
+	};
+
+
+		
+	
+	
+	echo"<table><tr><td>
+	<form  action='../add/' method='POST'>
 		<input type='hidden' name='deceasedid' value= '$deceasedid' >
-		<input  type='submit' class='btn' value='Add Memorial'>
-		</form>";
-};
+		<input  type='submit' class='btn' value='Add Message'>
+		</form>
+		</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+		<form  action='../link/' method='POST'>
+		<input type='hidden' name='deceasedid' value= '$deceasedid' >
+		<input  type='submit' class='btn' value='Add Link'>
+		</form></td></tr></table>";	
+
 
 mysqli_close($conn); // close database connection
 
 ?>
 
+<!-- Memorials Modal -->
+<div id="memorials" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-<h3>Facts</h3>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Memorials</h4>
+      </div>
+      <div class="modal-body">
+	  
+       <?php
+	   	echo"<table border='0' width='70%'>";
+		
+	while($row3 = mysqli_fetch_row($result3))      //  while there are rows available
+	{
+		echo"<tr>
+		<tr><td align='left' colspan='3'><strong>".$row3[1]."</td></tr>
+		<tr><td colspan='3'></br></td></tr>
+		<tr><td align='right'><strong>Added by:&nbsp;</strong></td>
+		<td align='left'>".$row3[0]."</td>
+		<td align='right'><strong>".$row3[2]."</strong></td>
+		</tr>
+		<tr><td colspan='3'></br></td></tr>
+		<tr><td colspan='3'></br></td></tr>
+				
+		";
+				
+	};
+	echo"</table>";
+	?>
+	   
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-<?php
+  </div>
+</div>
 
-if ($num4==0){
-	echo "<p>No Facts Available</p>
-	<form  action='../fact/' method='POST'>
-		<input type='hidden' name='deceasedid' value= '$deceasedid' >
-		<input  type='submit' class='btn' value='Add Fact'>
-		</form>";
-	}else{
-	echo"<table border='0' width='300'>";
+<!-- Stories Modal -->
+<div id="stories" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Stories</h4>
+      </div>
+      <div class="modal-body">
+        
+		<?php
+	   	echo"<table border='0' width='70%'>";
 		
 	while($row4 = mysqli_fetch_row($result4))      //  while there are rows available
 	{
 		echo"<tr>
-		<td align='left'>".$row4[1]." - ".$row4[2]."</td>
-		</tr>";
+		<tr><td align='left' colspan='3'><strong>".$row4[1]."</td></tr>
+		<tr><td colspan='3'></br></td></tr>
+		<tr><td align='right'><strong>Added by:&nbsp;</strong></td>
+		<td align='left'>".$row4[0]."</td>
+		<td align='right'><strong>".$row4[2]."</strong></td>
+		</tr>
+		<tr><td colspan='3'></br></td></tr>
+		<tr><td colspan='3'></br></td></tr>
+				
+		";
 				
 	};
-	echo"</table></br>
-	<form  action='../fact/' method='POST'>
-		<input type='hidden' name='deceasedid' value= '$deceasedid' >
-		<input  type='submit' class='btn' value='Add Fact'>
-		</form>";
-};
+	echo"</table>";
+	?>
+		
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-mysqli_close($conn); // close database connection
-
-?>
-
+  </div>
+</div>
 
 
+<!-- Facts Modal -->
+<div id="facts" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Facts</h4>
+      </div>
+      <div class="modal-body">
+       
+	   <?php
+	   	echo"<table border='0' width='70%'>";
+		
+	while($row6 = mysqli_fetch_row($result6))      //  while there are rows available
+	{
+		echo"<tr>
+		<tr><td align='left' colspan='3'><strong>".$row6[1]."</td></tr>
+		<tr><td colspan='3'></br></td></tr>
+		<tr><td align='right'><strong>Added by:&nbsp;</strong></td>
+		<td align='left'>".$row6[0]."</td>
+		<td align='right'><strong>".$row6[2]."</strong></td>
+		</tr>
+		<tr><td colspan='3'></br></td></tr>
+		<tr><td colspan='3'></br></td></tr>
+				
+		";
+				
+	};
+	echo"</table>";
+	?>
+	   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Links Modal -->
+<div id="links" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Links</h4>
+      </div>
+      <div class="modal-body">
+	  
+       <?php
+	   	echo"<table border='0' width='70%'>";
+		
+	while($row7 = mysqli_fetch_row($result7))      //  while there are rows available
+	{
+		echo"<tr>
+		<tr><td align='left' colspan='3'><strong>Link: <a href='".$row7[1]."'>".$row7[0]."</a></td></tr>
+		<tr><td colspan='3'></br></td></tr>";
+		if(!empty(trim($row7[3]))){
+		echo"<tr><td align='left' colspan='3'><strong>".$row7[3]."</td></tr>
+		<tr><td colspan='3'></br></td></tr>";
+		}
+		echo"<tr><td align='right'><strong>Added by:&nbsp;</strong></td>
+		<td align='left'>".$row7[2]."</td>
+		<td align='right'><strong>".$row7[4]."</strong></td>
+		</tr>
+		<tr><td colspan='3'></br></td></tr>
+		<tr><td colspan='3'></br></td></tr>
+				
+		";
+				
+	};
+	echo"</table>";
+	?>
+	   
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+</td></tr></table>
 
 
 

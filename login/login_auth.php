@@ -21,8 +21,9 @@ $num = mysqli_num_rows($result);
 
 if($num > 0) //login name was found 
 	{
-	$query2 = "SELECT `username` FROM `login` WHERE `username`='$_POST[MemberEmail]'  AND `password`='$_POST[MemberPassword]'"; 
-	// encryption - `password`=md5('$_POST[login_passwd]')
+	$password`=md5('$_POST[MemberPassword]')	
+	$query2 = "SELECT `username` FROM `login` WHERE `username`='$_POST[MemberEmail]'  AND `password`='$password'"; 
+	
 	$result2 = mysqli_query($conn, $query2) or die("Invalid Query2");
 	$num2 = mysqli_num_rows($result2); 
 	
